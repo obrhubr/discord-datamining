@@ -1,0 +1,116 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 100%;
+            height: 750px;
+            background-color: #222222;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"font": {"color": "white"}, "id": "CyberCock", "label": "CyberCock", "shape": "dot", "size": 10, "title": " "}, {"font": {"color": "white"}, "id": "PapaStalin", "label": "PapaStalin", "shape": "dot", "size": 10, "title": " "}, {"font": {"color": "white"}, "id": "Stueyphone", "label": "Stueyphone", "shape": "dot", "size": 10, "title": " "}, {"font": {"color": "white"}, "id": "TTVHansiXxProMMORPGGamer69420", "label": "TTVHansiXxProMMORPGGamer69420", "shape": "dot", "size": 10, "title": " "}, {"font": {"color": "white"}, "id": "Ubunga", "label": "Ubunga", "shape": "dot", "size": 10, "title": " "}, {"font": {"color": "white"}, "id": "Zuruk_HD", "label": "Zuruk_HD", "shape": "dot", "size": 10, "title": " "}, {"font": {"color": "white"}, "id": "invisible\u00ae", "label": "invisible\u00ae", "shape": "dot", "size": 10, "title": " "}, {"font": {"color": "white"}, "id": "kuchen_", "label": "kuchen_", "shape": "dot", "size": 10, "title": " "}, {"font": {"color": "white"}, "id": "moritzholadola", "label": "moritzholadola", "shape": "dot", "size": 10, "title": " "}, {"font": {"color": "white"}, "id": "susssuususss", "label": "susssuususss", "shape": "dot", "size": 10, "title": " "}]);
+        edges = new vis.DataSet([{"from": "CyberCock", "to": "PapaStalin", "value": 342}, {"from": "CyberCock", "to": "Stueyphone", "value": 923}, {"from": "CyberCock", "to": "TTVHansiXxProMMORPGGamer69420", "value": 358}, {"from": "CyberCock", "to": "Ubunga", "value": 134}, {"from": "CyberCock", "to": "Zuruk_HD", "value": 5}, {"from": "CyberCock", "to": "invisible\u00ae", "value": 323}, {"from": "CyberCock", "to": "kuchen_", "value": 131}, {"from": "CyberCock", "to": "moritzholadola", "value": 926}, {"from": "CyberCock", "to": "susssuususss", "value": 122}, {"from": "PapaStalin", "to": "Stueyphone", "value": 492}, {"from": "PapaStalin", "to": "TTVHansiXxProMMORPGGamer69420", "value": 319}, {"from": "PapaStalin", "to": "Ubunga", "value": 88}, {"from": "PapaStalin", "to": "Zuruk_HD", "value": 3}, {"from": "PapaStalin", "to": "invisible\u00ae", "value": 232}, {"from": "PapaStalin", "to": "kuchen_", "value": 223}, {"from": "PapaStalin", "to": "moritzholadola", "value": 461}, {"from": "PapaStalin", "to": "susssuususss", "value": 163}, {"from": "Stueyphone", "to": "TTVHansiXxProMMORPGGamer69420", "value": 451}, {"from": "Stueyphone", "to": "Ubunga", "value": 105}, {"from": "Stueyphone", "to": "Zuruk_HD", "value": 1}, {"from": "Stueyphone", "to": "invisible\u00ae", "value": 343}, {"from": "Stueyphone", "to": "kuchen_", "value": 210}, {"from": "Stueyphone", "to": "moritzholadola", "value": 1229}, {"from": "Stueyphone", "to": "susssuususss", "value": 181}, {"from": "TTVHansiXxProMMORPGGamer69420", "to": "Ubunga", "value": 3}, {"from": "TTVHansiXxProMMORPGGamer69420", "to": "Zuruk_HD", "value": 1}, {"from": "TTVHansiXxProMMORPGGamer69420", "to": "invisible\u00ae", "value": 219}, {"from": "TTVHansiXxProMMORPGGamer69420", "to": "kuchen_", "value": 106}, {"from": "TTVHansiXxProMMORPGGamer69420", "to": "moritzholadola", "value": 407}, {"from": "TTVHansiXxProMMORPGGamer69420", "to": "susssuususss", "value": 92}, {"from": "Ubunga", "to": "Zuruk_HD", "value": 0}, {"from": "Ubunga", "to": "invisible\u00ae", "value": 81}, {"from": "Ubunga", "to": "kuchen_", "value": 0}, {"from": "Ubunga", "to": "moritzholadola", "value": 143}, {"from": "Ubunga", "to": "susssuususss", "value": 15}, {"from": "Zuruk_HD", "to": "invisible\u00ae", "value": 1}, {"from": "Zuruk_HD", "to": "kuchen_", "value": 0}, {"from": "Zuruk_HD", "to": "moritzholadola", "value": 0}, {"from": "Zuruk_HD", "to": "susssuususss", "value": 6}, {"from": "invisible\u00ae", "to": "kuchen_", "value": 106}, {"from": "invisible\u00ae", "to": "moritzholadola", "value": 274}, {"from": "invisible\u00ae", "to": "susssuususss", "value": 80}, {"from": "kuchen_", "to": "moritzholadola", "value": 154}, {"from": "kuchen_", "to": "susssuususss", "value": 82}, {"from": "moritzholadola", "to": "susssuususss", "value": 120}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": false,
+            "type": "continuous"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.3,
+            "damping": 0.09,
+            "gravitationalConstant": -80000,
+            "springConstant": 0.001,
+            "springLength": 250
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+	 
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

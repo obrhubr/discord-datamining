@@ -1,0 +1,26 @@
+{
+  "name": "discord-data-mining",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "dotenv": "^9.0.2",
+    "firebase-admin": "^9.8.0",
+    "mongoose": "^5.12.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/obrhubr/discord-data-mining.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/obrhubr/discord-data-mining/issues"
+  },
+  "homepage": "https://github.com/obrhubr/discord-data-mining#readme"
+}
