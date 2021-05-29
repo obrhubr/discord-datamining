@@ -3,3 +3,4 @@ node_modules
 key.json
 output/data*.csv
 .vscode
+data-analysis/net.html
